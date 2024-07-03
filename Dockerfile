@@ -27,10 +27,12 @@ RUN npm ci
 
 COPY . .
 ENV APP_BUILD_HASH=${BUILD_HASH}
+ENV WEBUI_NAME="Ghostdog Systems Inc."
 RUN npm run build
 
 ######## WebUI backend ########
 FROM python:3.11-slim-bookworm as base
+ENV WEBUI_NAME="Ghostdog Systems Inc."
 
 # Use args
 ARG USE_CUDA
